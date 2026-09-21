@@ -1,6 +1,6 @@
 # AI-Enabled Portable ECG Monitoring System for Early Cardiac Risk Detection
 
-## 📌 Project Overview
+📌 Project Overview
 
 The **AI-Enabled Portable ECG Monitoring System for Early Cardiac Risk Detection** is a compact, low-cost and portable healthcare monitoring prototype designed to acquire ECG signals and provide real-time cardiac status information.
 
@@ -23,11 +23,7 @@ The primary objective is to develop an affordable portable system that can monit
 * Display monitoring information through a **Flutter mobile application**.
 * Develop a portable and expandable embedded healthcare platform.
 
----
-
-
-
-# 🔧 Hardware Components
+🔧 Hardware Components
 
 | Component          | Purpose                                         |
 | ------------------ | ----------------------------------------------- |
@@ -40,8 +36,6 @@ The primary objective is to develop an affordable portable system that can monit
 | Battery            | Portable power supply                           |
 | Push Button/Switch | Power/control                                   |
 | Pref-Board         | Circuit assembly                                |
-
----
 
 # ⚙️ Working Principle
 
@@ -61,8 +55,6 @@ Analog ECG Signal
 ESP32 ADC
 ```
 
----
-
 # 2. ECG Signal Processing
 
 The raw ECG signal can contain:
@@ -76,7 +68,6 @@ Digital filtering is therefore applied before feature extraction.
 
 The project uses filtering concepts such as a **Butterworth filter** to reduce unwanted frequency components while preserving important ECG waveform characteristics.
 
----
 
 # 3. R-Peak Detection
 
@@ -102,8 +93,6 @@ then:
 Heart Rate = 60 BPM
 ```
 
----
-
 # 4. Heartbeat Segmentation
 
 After identifying an R-peak, a fixed window around the peak is extracted to represent an individual heartbeat.
@@ -123,9 +112,6 @@ The MIT-BIH ECG data used in the initial model uses a sampling frequency of:
 ```text
 360 Hz
 ```
-
----
-
 # 🤖 Artificial Intelligence / Machine Learning
 
 The project uses Machine Learning to classify ECG heartbeat patterns.
@@ -158,9 +144,6 @@ Random Forest
    ↓
 Classification
 ```
-
----
-
 # 📊 Dataset
 
 The initial model development used ECG data from the **MIT-BIH Arrhythmia Database**.
@@ -174,7 +157,6 @@ The initial prototype used:
 +
 33 Abnormal beats
 ```
-
 for model development and testing.
 
 The initial prototype achieved approximately:
@@ -182,45 +164,32 @@ The initial prototype achieved approximately:
 ```text
 Accuracy: 85.71%
 ```
-
 with the available small dataset.
-
----
-
 # 🚀 Dataset Upgrade
 
 To improve the reliability of the model, the dataset is being expanded.
 
 Target dataset:
-
 ```text
 ~500 Normal beats
 +
 ~500 Abnormal beats
 ```
-
 The upgraded approach also aims to use samples from multiple ECG records and perform a **record-wise train/test split**.
 
 This is important because randomly splitting beats from the same patient/record can cause data leakage and produce overly optimistic results.
 
 The objective of the dataset upgrade is to obtain a more representative evaluation of the model.
 
----
-
 # 🧩 ESP32 AI Integration
-
 After training and evaluation, the trained model can be converted into a format suitable for embedded deployment.
-
 Example:
 
 ```text
 ecg_model.h
 ```
-
 The model is then integrated into the ESP32 firmware.
-
 The intended embedded workflow is:
-
 ```text
 ECG Acquisition
       ↓
@@ -236,17 +205,11 @@ Random Forest Model
       ↓
 Normal / Abnormal
 ```
-
 This allows the ESP32 to perform the main processing locally rather than sending raw ECG data to the mobile application for AI processing.
-
 ---
-
 # ❤️ MAX30102 Integration
-
 The **MAX30102** is used as an additional physiological sensing module.
-
 It can provide:
-
 * Heart rate
 * SpO₂ estimation
 
@@ -254,12 +217,8 @@ The sensor communicates with the ESP32 using the **I²C interface**.
 
 The MAX30102 is intended to complement ECG monitoring rather than replace ECG analysis.
 
----
-
 # 🖥️ OLED Display
-
 An OLED display provides local feedback without requiring a smartphone.
-
 The display can show information such as:
 
 ```text
@@ -271,15 +230,10 @@ SpO2: 98%
 STATUS:
 NORMAL
 ```
-
 For an abnormal classification, the system can provide an alert through the display, LED and buzzer.
 
----
-
 # 📡 IoT Communication
-
 The ESP32 provides Wi-Fi connectivity and communicates with the Flutter application using the **MQTT protocol**.
-
 System flow:
 
 ```text
@@ -291,7 +245,6 @@ MQTT Broker
   ↓
 Flutter Application
 ```
-
 The project uses MQTT for lightweight publish/subscribe communication.
 
 Example topic:
@@ -299,11 +252,8 @@ Example topic:
 ```text
 smart_ecg/demo_esp32_01/data
 ```
-
 The mobile application receives processed monitoring information rather than performing the primary ECG AI processing.
-
 ---
-
 # 📱 Flutter Mobile Application
 
 A Flutter-based mobile application is used as the monitoring dashboard.
@@ -328,9 +278,6 @@ MQTT
 ESP32
 Wi-Fi
 ```
-
----
-
 # 🔔 Alert System
 
 The embedded system can provide alerts through:
@@ -349,15 +296,10 @@ Heart Rate: 55 BPM
 
 Please consult a healthcare professional.
 ```
-
 The alert mechanism is intended as a prototype notification feature and should not be interpreted as a medical diagnosis.
 
----
-
 # 🔋 Power System
-
 The portable version is designed around a rechargeable battery system.
-
 Basic power architecture:
 
 ```text
@@ -375,40 +317,6 @@ Rechargeable Battery
         ├── MAX30102
         └── OLED
 ```
-
-The final PCB design will include appropriate power regulation and decoupling.
-
----
-
-# 🔌 PCB Development
-
-A custom PCB is planned for the final hardware version.
-
-Target PCB specification:
-
-```text
-Board Size: 70 × 90 mm
-Layers: 2
-Material: FR-4
-Thickness: ~1.6 mm
-Copper: ~1 oz
-```
-
-The PCB will integrate/connect:
-
-* ESP32
-* AD8232
-* MAX30102
-* OLED
-* LEDs
-* Buzzer
-* Power management
-* Connectors
-
-The ECG analog signal routing will be kept short and separated from noisy digital/power traces wherever practical.
-
----
-
 # 🛠️ Software & Tools
 
 ### Embedded
@@ -436,9 +344,7 @@ The ECG analog signal routing will be kept short and separated from noisy digita
 
 * EasyEDA / KiCad
 * PCB prototyping
-
 ---
-
 # 📁 Project Structure
 
 ```text
@@ -490,30 +396,6 @@ Future improvements may include:
 * Secure patient-data storage
 * Additional physiological sensors
 * Clinical validation under appropriate medical supervision
-
----
-
-
-# 👨‍💻 Project
-
-**Project Name:** AI-Enabled Portable ECG Monitoring System for Early Cardiac Risk Detection
-
-**Core Technologies:**
-
-```text
-ESP32
-AD8232
-MAX30102
-OLED
-Machine Learning
-Random Forest
-Python
-MQTT
-Flutter
-Wi-Fi
-PCB
-```
-
 ---
 
 ## ⭐ Key Highlights
