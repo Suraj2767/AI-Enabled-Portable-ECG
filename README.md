@@ -35,13 +35,11 @@ The primary objective is to develop an affordable portable system that can monit
 | AD8232             | ECG signal acquisition                          |
 | MAX30102           | Heart rate and SpO₂ measurement                 |
 | OLED Display       | Local real-time information display             |
-| Buzzer             | Warning/alert indication                        |
 | LEDs               | System/status indication                        |
 | TP4056             | Li-ion/Li-Po battery charging                   |
 | Battery            | Portable power supply                           |
 | Push Button/Switch | Power/control                                   |
-| Resistors          | LED and signal interface                        |
-| Breadboard/PCB     | Circuit assembly                                |
+| Pref-Board         | Circuit assembly                                |
 
 ---
 
