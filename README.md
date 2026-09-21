@@ -278,45 +278,7 @@ MQTT
 ESP32
 Wi-Fi
 ```
-# 🔔 Alert System
 
-The embedded system can provide alerts through:
-
-* Red LED
-* Buzzer
-* OLED warning message
-* Mobile dashboard status
-
-Example:
-
-```text
-⚠ ABNORMAL
-
-Heart Rate: 55 BPM
-
-Please consult a healthcare professional.
-```
-The alert mechanism is intended as a prototype notification feature and should not be interpreted as a medical diagnosis.
-
-# 🔋 Power System
-The portable version is designed around a rechargeable battery system.
-Basic power architecture:
-
-```text
-Rechargeable Battery
-        ↓
-      TP4056
-   Charging/Protection
-        ↓
-     Power Switch
-        ↓
-   Voltage Regulation
-        ↓
-      ESP32
-        ├── AD8232
-        ├── MAX30102
-        └── OLED
-```
 # 🛠️ Software & Tools
 
 ### Embedded
@@ -358,7 +320,7 @@ AI-Enabled-Portable-ECG/
 ├── AI_Model/
 │   ├── training_code/
 │   ├── dataset_processing/
-│   └── ecg_model.h
+│   └── ecg_model_v3_3.h
 │
 ├── Flutter_App/
 │   └── smart_ecg/
@@ -380,7 +342,6 @@ AI-Enabled-Portable-ECG/
 ```
 
 ---
-
 
 # 🔮 Future Scope
 
