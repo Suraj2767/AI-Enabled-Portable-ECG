@@ -8,9 +8,6 @@ The system combines **ECG signal acquisition, digital signal processing, machine
 
 The primary objective is to develop an affordable portable system that can monitor ECG signals, extract useful features, classify the detected heartbeat pattern, and provide an understandable status to the user.
 
-> **Note:** This project is an educational/research prototype and is not intended to replace professional medical diagnosis or clinical ECG equipment.
-
----
 
 ## 🎯 Objectives
 
@@ -498,15 +495,6 @@ Future improvements may include:
 
 ---
 
-# ⚠️ Disclaimer
-
-This project is developed for **educational, research, prototyping and engineering purposes**.
-
-It is **not a medical device** and should not be used to diagnose, treat, or rule out any medical condition. ECG and SpO₂ measurements can be affected by sensor placement, motion, noise, hardware limitations and other factors.
-
-Any concerning health reading should be evaluated by a qualified healthcare professional using appropriate clinical equipment.
-
----
 
 # 👨‍💻 Project
 
