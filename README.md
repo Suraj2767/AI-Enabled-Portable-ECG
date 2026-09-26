@@ -2,7 +2,7 @@
 
 📌 Project Overview
 
-The **AI-Enabled Portable ECG Monitoring System for Early Cardiac Risk Detection** is a compact, low-cost and portable healthcare monitoring prototype designed to acquire ECG signals and provide real-time cardiac status information.
+The **AI-Enabled Portable ECG Monitoring System for Early Cardiac Risk Detection** is a compact, low-cost and portable healthcare monitoring System designed to acquire ECG signals and provide real-time cardiac status information.
 
 The system combines **ECG signal acquisition, digital signal processing, machine learning, physiological sensing, ESP32-based embedded processing, MQTT communication, and a Flutter mobile dashboard** into a single monitoring platform.
 
@@ -23,7 +23,8 @@ The primary objective is to develop an affordable portable system that can monit
 * Display monitoring information through a **Flutter mobile application**.
 * Develop a portable and expandable embedded healthcare platform.
 
-🔧 Hardware Components
+
+# 🔧 Hardware Components
 
 | Component          | Purpose                                         |
 | ------------------ | ----------------------------------------------- |
@@ -116,18 +117,29 @@ The MIT-BIH ECG data used in the initial model uses a sampling frequency of:
 
 The project uses Machine Learning to classify ECG heartbeat patterns.
 
-Initially, a **Random Forest classifier** was used for classification.
+Initially, a **Random Forest classifier** is used for classification.
 
 Instead of directly feeding the entire ECG waveform into the classifier, numerical features are extracted from each heartbeat.
 
 ### Features used
+The final embedded model uses 84 ECG features.
 
-1. Mean
-2. Standard deviation
-3. Maximum value
-4. Minimum value
-5. Peak-to-peak value
-6. RMS (Root Mean Square)
+The feature set includes:
+
+Record-normalized amplitude characteristics
+Maximum and minimum amplitude
+Peak-to-peak amplitude
+Standard deviation
+RMS
+Median
+IQR
+ECG waveform shape characteristics
+Maximum and mean slope
+Peak positions
+Zero-crossing information
+QRS-width related information
+Downsampled waveform characteristics
+RR-interval ratios
 
 These features form the input vector for the Random Forest model.
 
@@ -138,7 +150,7 @@ ECG Beat
    ↓
 Feature Extraction
    ↓
-[Mean, Std, Max, Min, P2P, RMS]
+[Mean, Std, Max, Min, P2P, RMS,..]
    ↓
 Random Forest
    ↓
@@ -153,40 +165,25 @@ The ECG recordings were processed into individual heartbeat segments.
 The initial prototype used:
 
 ```text
-33 Normal beats
+500 Normal beats
 +
-33 Abnormal beats
+500 Abnormal beats
 ```
-for model development and testing.
+for model development and training.
 
-The initial prototype achieved approximately:
+The initial model achieved approximately:
 
 ```text
-Accuracy: 85.71%
+Accuracy: 87.71%
 ```
-with the available small dataset.
-# 🚀 Dataset Upgrade
-
-To improve the reliability of the model, the dataset is being expanded.
-
-Target dataset:
-```text
-~500 Normal beats
-+
-~500 Abnormal beats
-```
-The upgraded approach also aims to use samples from multiple ECG records and perform a **record-wise train/test split**.
-
-This is important because randomly splitting beats from the same patient/record can cause data leakage and produce overly optimistic results.
-
-The objective of the dataset upgrade is to obtain a more representative evaluation of the model.
+with the available   dataset.
 
 # 🧩 ESP32 AI Integration
 After training and evaluation, the trained model can be converted into a format suitable for embedded deployment.
 Example:
 
 ```text
-ecg_model.h
+ecg_model_v3_3.h
 ```
 The model is then integrated into the ESP32 firmware.
 The intended embedded workflow is:
