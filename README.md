@@ -360,6 +360,7 @@ Future improvements may include:
 ---
 
 <img width="611" height="374" alt="image" src="https://github.com/user-attachments/assets/23dfba6d-bb32-45e9-9211-6e66aeca45f4" />
-<img width="907" height="1733" alt="ChatGPT Image Sep 26, 2026, 06_58_28 PM" src="https://github.com/user-attachments/assets/9ffe9ab5-9021-4540-b7b9-ba860a89c57a" />
+<img width="205" height="384" alt="image" src="https://github.com/user-attachments/assets/bf4edc53-36d4-45c9-9861-bd59287e0805" />
+
 
 
